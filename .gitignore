@@ -13,3 +13,10 @@
 *.a
 mkmf.log
 .env
+
+# Sublime Text Project Files
+/*.sublime-*
+
+# Bundles
+
+/vendor/bundle
