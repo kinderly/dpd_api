@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+require 'dpd_api/label_data'
+
 module DpdApi
   class LabelPrint < Base
     class << self
@@ -9,6 +11,14 @@ module DpdApi
 
       def create_label(params = {})
         response(:create_label, params, namespace: :get_label)
+      end
+
+      def create_local_labels(orders)
+        labels = orders.map do |o|
+          DpdApi::LabelData.new(o[:sender_name], o[:receiver_name], o[:order_number], o[:barcode])
+        end
+
+        DpdApi::LabelData.render(labels)
       end
 
       protected

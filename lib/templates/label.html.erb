@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Ярлыки IML</title>
+    <style>
+      @page {
+        margin: 0;
+      }
+
+      body {
+        width: 210mm;
+        font-family: Arial;
+        margin:2mm 0 0 0;
+        padding:0;
+      }
+
+      div {
+        overflow: hidden;
+      }
+
+      .label {
+        border: 0.5mm black solid;
+        position: relative;
+        float: left;
+        height: 55.3mm;
+        width: 98mm;
+        padding: 2mm 0 0 0;
+      }
+
+      .footer {
+        position: absolute;
+        top: 38mm;
+        padding: 0 5mm 0 5mm;
+        width: 85mm;
+      }
+
+      .order-number {
+        text-align: center;
+        font-weight: bold;
+        font-size: 16pt;
+      }
+
+      .sender {
+        text-align: center;
+      }
+
+      .receiver{
+        text-align: center;
+      }
+
+      .barcode{
+        float: left;
+        text-align: center;
+        font-size: 14pt;
+      }
+
+      .logo{
+        text-align: center;
+        float: right;
+      }
+
+      p {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <% @labels.each do |label| %>
+      <div class="label">
+        <div class="order-number">
+          <%= label.order_number %>
+        </div>
+        <div class="sender">
+          Отправитель: <%= label.sender_name %>
+        </div>
+
+        <div class="receiver">
+          Получатель: <%= label.receiver_name %>
+        </div>
+        <div class="footer">
+          <div class="barcode">
+            <%= label.barcode_svg %>
+            <p><%= label.barcode %></p>
+          </div>
+          <div class="logo">
+            <img src='<%= label.logo_base_64 %>' alt='DPD'/>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </body>
+</html>
