@@ -15,7 +15,7 @@ module DpdApi
 
       def create_local_labels(orders)
         labels = orders.map do |o|
-          DpdApi::LabelData.new(o[:sender_name], o[:receiver_name], o[:order_number], o[:barcode])
+          DpdApi::LabelData.new(o[:sender_name], o[:receiver_name], o[:order_number], o[:barcode], o[:dpd_number])
         end
 
         DpdApi::LabelData.render(labels)

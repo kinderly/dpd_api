@@ -5,11 +5,11 @@ require 'base64'
 require 'erb'
 
 module DpdApi
-  class LabelData < Struct.new(:sender_name, :receiver_name, :order_number, :barcode)
+  class LabelData < Struct.new(:sender_name, :receiver_name, :order_number, :barcode, :dpd_number)
 
     def barcode_svg(height = 45)
       barby = Barby::Code128.new(self.barcode.to_s)
-      barby.to_svg(xdim: 2, margin: 0, height: height)
+      barby.to_svg(xdim: 1.5, margin: 0, height: height)
     end
 
     def self.render(labels, template = nil)

@@ -36,17 +36,31 @@
       }
 
       .order-number {
-        text-align: center;
+        margin-left: 4mm;
+        text-align: left;
         font-weight: bold;
         font-size: 16pt;
+        float: left;
+      }
+
+      .dpd-number {
+        text-align: right;
+        float: right;
+        margin-right: 4mm;
+      }
+
+      .clear {
+        clear: both;
       }
 
       .sender {
         text-align: center;
+        margin: 1mm 3mm 1mm 3mm;
       }
 
       .receiver{
         text-align: center;
+        margin: 1mm 3mm 1mm 3mm;
       }
 
       .barcode{
@@ -72,6 +86,13 @@
         <div class="order-number">
           <%= label.order_number %>
         </div>
+
+        <div class="dpd-number">
+          <%= label.dpd_number %>
+        </div>
+
+        <div class="clear"></div>
+
         <div class="sender">
           Отправитель: <%= label.sender_name %>
         </div>

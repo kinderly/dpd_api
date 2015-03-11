@@ -5,9 +5,9 @@ require "spec_helper"
 describe DpdApi::LabelPrint do
 
   context "local_labels" do
-    let(:single_label) { [ { sender_name: 'ООО Вектор', receiver_name: 'Иванов Петр Алексеевич', order_number: 344019, barcode: 1234567} ] }
-    let(:multiple_labels) { [ { sender_name: 'ООО Вектор', receiver_name: 'Иванов Петр Алексеевич', order_number: 344019, barcode: 1234567},
-                              { sender_name: 'ООО Вектор', receiver_name: 'Петров Алексей Иванович', order_number: 344020, barcode: 1234568}] }
+    let(:single_label) { [ { sender_name: 'ООО Киндерли', receiver_name: 'Петров Алексей Иванович, 344018, Россия, г. Москва, ул. Верхнаяя масловка, д. 127 к. 2, кв. 26', order_number: 132947, barcode: '2096022', dpd_number: '03046124MOW'} ] }
+    let(:multiple_labels) { [ { sender_name: 'ООО Вектор', receiver_name: 'Иванов Петр Алексеевич', order_number: 344019, barcode: '2096022', dpd_number: '03046123MOW'},
+                              { sender_name: 'ООО Вектор', receiver_name: 'Петров Алексей Иванович, 344018, Россия, г. Москва, ул. Верхнаяя масловка, д. 127 к. 2, кв. 26', order_number: 344020, barcode: '2096022', dpd_number: '03046124MOW'}] }
 
     it "renders single label" do
       expect do
