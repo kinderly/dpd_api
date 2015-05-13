@@ -35,7 +35,7 @@ module DpdApi
           @method  = method
           @params  = params
           @namespace = options.delete(:namespace)
-          @merged_params = merge_auth_params
+          @merged_params = options.delete(:auth) || merge_auth_params
         end
 
         def resources
